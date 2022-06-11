@@ -27,7 +27,13 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", message => {
-    const filter = m => m.author.id == message.author.id;
+    const filter = m => {
+        console.log(m);
+
+       return m.author.id == message.author.id;
+    }
+
+    console.log(message);
 
     if (message.content.toLowerCase() == "?hello") {
         message.channel.send("what is your name?");
