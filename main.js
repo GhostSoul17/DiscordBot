@@ -27,18 +27,16 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", message => {
-    const filter = m => {
-       return m.author.id == message.author.id;
-    }
 
     if (message.content.toLowerCase() == "?hello") {
         message.channel.send("what is your name?");
 
-        message.channel.awaitMessageComponent(filter, { time: 5000 })
+        message.channel.awaitMessages({ filter: m => m.author.id == message.author.id, max: 1, time: 5000, errors: ['time'] })
         .then(collected => {
             console.log(collected);
             message.reply("Thanks for the reply!");
         })
+        .catch(() => message.reply("Sorry timed out"))
     }
 })
 
