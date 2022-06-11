@@ -61,10 +61,10 @@ class GameBot {
                                 const userAnwser = m.first().content;
                                 
                                 if (userAnwser.toLowerCase() == botAnswer) {
-                                    message.reply(`Yes! I was totally thinking of ${botAnswer}!`)
+                                    message.reply(`Yes! I was totally thinking of ${botAnswer.toString()}!`)
                                 }
                                 else {
-                                    message.reply(`Womp womp, I was thinking of ${botAnswer}. You lose.`)
+                                    message.reply(`Womp womp, I was thinking of ${botAnswer.toString()}. You lose.`)
                                 }
                             }).catch(collected => {
                                 message.reply('Game timed out. Try again.');
