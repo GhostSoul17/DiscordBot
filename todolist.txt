@@ -1,0 +1,5 @@
+add folder organization
+add feature of a help menu
+add commands for kick, delete message, mute user
+build user class 
+build database for profiles
