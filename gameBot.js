@@ -48,23 +48,21 @@ class GameBot {
             if(message.content.toLowerCase().includes("play")){
                 message.channel.send("What would you like to play? \nGames: 0, 1, 2").then(() => {
                     message.channel.awaitMessages(m => m.author.id == member.id, { max: 1, time: 120, errors: ["time"] })
-                    .then(message => {
-                        message = message.first();
-
-                        switch (message) {
+                    .then(m => {
+                        switch (m.first().content) {
                             case "0":
                                 message.channel.send("I am thinking of a number between 1 and 100.\nWhat number am I thinking of?")
                                 .then(() => {
                                     message.channel.awaitMessages(m => m.author.id == member.id, { max: 1, time: 120, errors: ["time"] })
-                                    .then(message => {
-                                        let answer = Math.floor(Math.random * (1 - 100));
-                                        message = message.first();
+                                    .then(m => {
+                                        const botAnswer = Math.floor(Math.random * (1 - 100));
+                                        const userAnwser = m.first().content;
 
-                                        if (message.content.toLowerCase() == answer) {
-                                            message.reply(`Yes! I was totally thinking of ${answer}!`)
+                                        if (userAnwser.toLowerCase() == botAnswer) {
+                                            message.reply(`Yes! I was totally thinking of ${botAnswer}!`)
                                         }
                                         else {
-                                            message.reply(`Womp womp, I was thinking of ${answer}. You lose.`)
+                                            message.reply(`Womp womp, I was thinking of ${botAnswer}. You lose.`)
                                         }
                                     });
                                 }).catch(collected => {
