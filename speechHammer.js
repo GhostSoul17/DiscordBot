@@ -30,9 +30,11 @@ class SpeechHammer {
 
     checkSpeech() {
         this.client.on("messageCreate", (message) => {
+            const messageArr = message.content.toLowerCase().split(" ");
+
             for (let i = 0; i < this.naughtyWords.length; ++i)
             {
-                if (message.content.toLowerCase().search(this.naughtyWords[i]) != -1)
+                if (messageArr.contains(this.naughtyWords[i]))
                 {
                     message.reply(this.randomReply[Math.floor(Math.random() * this.randomReply.length)]);
                     break;
