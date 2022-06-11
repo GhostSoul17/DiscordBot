@@ -1,6 +1,8 @@
-const {helpCall} = require('helpCommands.js');
-const Discord = require('discord.js');
-require('dotenv').config();
+import { helpCall } from './helpCommands.js';
+import Discord from 'discord.js';
+import env from 'dotenv';
+
+env.config();
 
 const client = new Discord.Client({
     intents: [
