@@ -14,8 +14,8 @@ const client = new Discord.Client({
     ]
 })
 
-const helper = new HelpCommands(client);
 const starter = "stalkerbot";
+const helper = new HelpCommands(client, starter);
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`)
