@@ -32,7 +32,7 @@ class SpeechHammer {
         this.client.on("messageCreate", (message) => {
             for (let i = 0; i < this.naughtyWords.length; ++i)
             {
-                if (message.content.toLowerCase().includes(this.naughtyWords[i]))
+                if (message.content.toLowerCase().search(this.naughtyWords[i]) != -1)
                 {
                     message.reply(this.randomReply[Math.floor(Math.random() * this.randomReply.length)]);
                     break;
