@@ -1,4 +1,5 @@
 import HelpCommands from './helpCommands.js';
+import SpeechHammer from './speechHammer.js';
 import Discord from 'discord.js';
 import env from 'dotenv';
 
@@ -16,6 +17,7 @@ const client = new Discord.Client({
 
 const starter = "stalkerbot";
 const helper = new HelpCommands(client, starter);
+const hammer = new SpeechHammer(client);
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`)
@@ -31,5 +33,7 @@ client.on("messageCreate", (message) => {
 })
 
 helper.helpCall();
+
+hammer.checkSpeech();
 
 client.login(process.env.TOKEN)
