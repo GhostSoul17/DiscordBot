@@ -57,14 +57,14 @@ class GameBot {
                             
                             message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 15000, errors: ["time"] })
                             .then(m => {
-                                const botAnswer = Math.floor(Math.random * (100 - 1 + 1) + 1);
+                                const botAnswer = Math.floor((Math.random() * 100) + 1);
                                 const userAnwser = m.first().content;
                                 
                                 if (userAnwser.toLowerCase() == botAnswer) {
-                                    message.reply(`Yes! I was totally thinking of ${botAnswer.toString()}!`)
+                                    message.reply(`Yes! I was totally thinking of ${botAnswer}!`)
                                 }
                                 else {
-                                    message.reply(`Womp womp, I was thinking of ${botAnswer.toString()}. You lose.`)
+                                    message.reply(`Womp womp, I was thinking of ${botAnswer}. You lose.`)
                                 }
                             }).catch(collected => {
                                 message.reply('Game timed out. Try again.');
