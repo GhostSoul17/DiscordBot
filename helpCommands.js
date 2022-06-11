@@ -9,7 +9,7 @@ class HelpCommands {
             
             if (!message.content.toLowerCase().startsWith(starter)) return;
 
-            if(message.content.toLowerCase().contains("help")){
+            if(message.content.toLowerCase().includes("help")){
                 message.reply("Please be more specific")
             }
         })
