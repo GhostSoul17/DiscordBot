@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const TOKEN = "OTgzMTgzNDQxNjczNzQ4NTAw.GSveC6._2rZ8liVaHDkJu7_WNDRNcUgUmf-_qLE-q0bgo";
 
 const client = new Discord.Client({
     intents: [
