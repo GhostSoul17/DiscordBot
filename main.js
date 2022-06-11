@@ -1,4 +1,5 @@
-const HelpCommmands = require('./helpCommands.js');
+import { helpCall } from './helpCommands';
+
 const Discord = require('discord.js');
 require('dotenv').config();
 
@@ -20,6 +21,6 @@ client.on("messageCreate", (message) => {
     }
 })
 
-HelpCommmands.helpCall(client);
+helpCall(client);
 
 client.login(process.env.TOKEN)
