@@ -14,7 +14,7 @@ client.on("ready", () => {
 })
 
 client.on("messageCreate", (message) => {
-    if(message.content == "hey" || message.content == "yo"){
+    if(message.content.toLowerCase() == "hey" || message.content.toLowerCase() == "yo"){
         message.reply("I notice you...")
     }
 })
