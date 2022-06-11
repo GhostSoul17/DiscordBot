@@ -34,7 +34,7 @@ class SpeechHammer {
 
             for (let i = 0; i < this.naughtyWords.length; ++i)
             {
-                if (messageArr.contains(this.naughtyWords[i]))
+                if (messageArr.includes(this.naughtyWords[i]))
                 {
                     message.reply(this.randomReply[Math.floor(Math.random() * this.randomReply.length)]);
                     break;
