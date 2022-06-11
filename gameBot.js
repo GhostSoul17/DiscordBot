@@ -3,43 +3,41 @@ class GameBot {
     constructor(client, starterG) {
         this.client = client;
         this.starterG = starterG;
-        this.animalARRAY = animalARRAY;
+        this.animalARRAY = [
+            "Leopard",
+            "Bengal Tiger",
+            "pussy",
+            "squirrel",
+            "Bear",
+            "Lion",
+            "Flying Fox",
+            "Rabbit",
+            "Peregrine Falcon",
+            "chihuahua",
+            "titmouse",
+            "chipmunk",
+            "mouse",
+            "blue footed booby",
+            "kea",
+            "dodo bird",
+            "lemming",
+            "snek",
+            "booplesnoot",
+            "trash panda",
+            "cow",
+            "pig",
+            "moo moo",
+            "opossum",
+            "vulture",
+            "sugar glider",
+            "hamster",
+            "guinea pig",
+            "crow",
+            "wombat",
+            "crocodile",
+            "flat fuck"
+        ];
     };
-
-    animalARRAY = [
-        "Leopard",
-        "Bengal Tiger",
-        "pussy",
-        "squirrel",
-        "Bear",
-        "Lion",
-        "Flying Fox",
-        "Rabbit",
-        "Peregrine Falcon",
-        "chihuahua",
-        "titmouse",
-        "chipmunk",
-        "mouse",
-        "blue footed booby",
-        "kea",
-        "dodo bird",
-        "lemming",
-        "snek",
-        "booplesnoot",
-        "trash panda",
-        "cow",
-        "pig",
-        "moo moo",
-        "opossum",
-        "vulture",
-        "sugar glider",
-        "hamster",
-        "guinea pig",
-        "crow",
-        "wombat",
-        "crocodile",
-        "flat fuck"
-    ]
 
     gameCall() {
         this.client.on("messageCreate", (message) => {
