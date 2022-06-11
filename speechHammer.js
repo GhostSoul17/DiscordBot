@@ -33,7 +33,7 @@ class SpeechHammer {
             {
                 if (message.content.toLowerCase().includes(this.naughtyWords[i]))
                 {
-                    message.reply(this.randomReply[Math.random() * this.randomReply.length]);
+                    message.reply(this.randomReply[Math.floor(MathMath.random() * this.randomReply.length)]);
                     break;
                 }
             }
