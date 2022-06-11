@@ -49,13 +49,13 @@ class GameBot {
             if(message.content.toLowerCase().includes("play")){
                 message.channel.send("What would you like to play? \nGames: 0, 1, 2")
 
-                message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 120, errors: ["time"] })
+                message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 15000, errors: ["time"] })
                 .then(m => {
                     switch (m.first().content) {
                         case "0":
                             message.channel.send("I am thinking of a number between 1 and 100.\nWhat number am I thinking of?");
                             
-                            message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 120, errors: ["time"] })
+                            message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 15000, errors: ["time"] })
                             .then(m => {
                                 const botAnswer = Math.floor(Math.random * (1 - 100));
                                 const userAnwser = m.first().content;
