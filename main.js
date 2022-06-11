@@ -26,6 +26,19 @@ client.on("ready", () => {
 
 });
 
+client.on("messageCreate", message => {
+    const filter = m => m.author.id == message.author.id;
+
+    if (message.content.toLowerCase() == "?hello") {
+        message.channel.send("what is your name?");
+
+        message.channel.awaitMessages(filter, { max: 1, time: 5000 })
+        .then(collected => {
+            message.reply("Thanks for the reply!");
+        })
+    }
+})
+
 helper.helpCall();
 
 hammer.checkSpeech();
