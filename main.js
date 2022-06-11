@@ -34,7 +34,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase() == "?hello") {
         message.channel.send("what is your name?");
 
-        message.channel.awaitMessages(filter, { time: 50000000000000 })
+        message.channel.awaitMessageComponent(filter, { time: 5000 })
         .then(collected => {
             console.log(collected);
             message.reply("Thanks for the reply!");
