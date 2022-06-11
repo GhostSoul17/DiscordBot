@@ -1,6 +1,7 @@
 class SpeechHammer {
-    constructor(client) {
+    constructor(client, starter) {
         this.client = client;
+        this.starter = starter;
         this.naughtyWords = new Array( 
             "moist",
             "lit",

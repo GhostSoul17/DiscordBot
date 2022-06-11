@@ -17,7 +17,7 @@ const client = new Discord.Client({
 const starter = "stalkerbot";
 const starterG = "gamebot";
 const helper = new HelpCommands(client, starter);
-const hammer = new SpeechHammer(client);
+const hammer = new SpeechHammer(client, starter);
 // const users = new UserCommands(client, starter);
 const gameBot = new GameBot(client, starterG);
 
