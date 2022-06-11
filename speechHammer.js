@@ -42,7 +42,7 @@ class SpeechHammer {
     }
 
     welcomeSpeech() {
-        client.on("messageCreate", (message) => {
+        this.client.on("messageCreate", (message) => {
             if (!message.content.toLowerCase().startsWith(starter)) return;
         
             if(message.content.toLowerCase().includes("hey") || message.content.toLowerCase().includes("yo")){
