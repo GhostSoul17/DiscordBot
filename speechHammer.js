@@ -43,7 +43,7 @@ class SpeechHammer {
 
     welcomeSpeech() {
         this.client.on("messageCreate", (message) => {
-            if (!message.content.toLowerCase().startsWith(starter)) return;
+            if (!message.content.toLowerCase().startsWith(this.starter)) return;
         
             if(message.content.toLowerCase().includes("hey") || message.content.toLowerCase().includes("yo")){
                 message.reply("I notice you...")
