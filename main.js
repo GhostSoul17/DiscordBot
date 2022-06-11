@@ -1,3 +1,4 @@
+const HelpCommmands = require('./helpCommands.js');
 const Discord = require('discord.js');
 require('dotenv').config();
 
@@ -18,5 +19,7 @@ client.on("messageCreate", (message) => {
         message.reply("I notice you...")
     }
 })
+
+HelpCommmands.helpCall(client);
 
 client.login(process.env.TOKEN)
