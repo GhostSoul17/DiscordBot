@@ -43,9 +43,10 @@ class GameBot {
         this.client.on("messageCreate", (message) => {
             
             if (!message.content.toLowerCase().startsWith(this.starterG)) return;
-                let choice = "";
+                
             if(message.content.toLowerCase().includes("play")){
                 message.reply("What would you like to play? \nGames: 0, 1, 2")
+                let choice = message.content.toLowerCase();
                 if(message.content.toLowerCase().includes("0")){
                     choice = "0";
                 }
