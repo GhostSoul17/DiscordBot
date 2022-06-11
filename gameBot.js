@@ -41,20 +41,20 @@ class GameBot {
 
     gameCall() {
         this.client.on("messageCreate", (message) => {
-            const { author } = message;
+            const { user } = message;
 
             if (!message.content.toLowerCase().startsWith(this.starterG)) return;
                 
             if(message.content.toLowerCase().includes("play")){
                 message.channel.send("What would you like to play? \nGames: 0, 1, 2")
 
-                message.channel.awaitMessages(m => m.author.id == author.id, { max: 1, time: 120, errors: ["time"] })
+                message.awaitMessagesComponent(m => m.user.id == user.id, { max: 1, time: 5000, errors: ["time"] })
                 .then(m => {
                     switch (m.first().content) {
                         case "0":
                             message.channel.send("I am thinking of a number between 1 and 100.\nWhat number am I thinking of?");
                             
-                            message.channel.awaitMessages(m => m.author.id == author.id, { max: 1, time: 120, errors: ["time"] })
+                            message.awaitMessagesComponent(m => m.author.id == author.id, { max: 1, time: 5000, errors: ["time"] })
                             .then(m => {
                                 const botAnswer = Math.floor(Math.random * (1 - 100));
                                 const userAnwser = m.first().content;
