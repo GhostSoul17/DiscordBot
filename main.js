@@ -1,5 +1,4 @@
-import { helpCall } from './helpCommands';
-
+const {helpCall} = require('helpCommands.js');
 const Discord = require('discord.js');
 require('dotenv').config();
 
