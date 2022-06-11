@@ -26,20 +26,6 @@ client.on("ready", () => {
 
 });
 
-client.on("messageCreate", message => {
-
-    if (message.content.toLowerCase() == "?hello") {
-        message.channel.send("what is your name?");
-
-        message.channel.awaitMessages({ filter: m => m.author.id == message.author.id, max: 1, time: 5000, errors: ['time'] })
-        .then(collected => {
-            console.log(collected);
-            message.reply("Thanks for the reply!");
-        })
-        .catch(() => message.reply("Sorry timed out"))
-    }
-})
-
 helper.helpCall();
 
 hammer.checkSpeech();
