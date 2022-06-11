@@ -4,9 +4,12 @@ class HelpCommands {
         this.client = client;
     };
 
-    helpCall(){
+    helpCall() {
         this.client.on("messageCreate", (message) => {
-            if(message.content.toLowerCase() == "help"){
+            
+            if (!message.content.toLowerCase().startsWith(starter)) return;
+
+            if(message.content.toLowerCase().contains("help")){
                 message.reply("Please be more specific")
             }
         })

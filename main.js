@@ -15,6 +15,7 @@ const client = new Discord.Client({
 })
 
 const helper = new HelpCommands(client);
+const starter = "stalkerbot";
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`)
@@ -22,7 +23,9 @@ client.on("ready", () => {
 })
 
 client.on("messageCreate", (message) => {
-    if(message.content.toLowerCase() == "hey" || message.content.toLowerCase() == "yo"){
+    if (!message.content.toLowerCase().startsWith(starter)) return;
+
+    if(message.content.toLowerCase().contains("hey") || message.content.toLowerCase().contains("yo")){
         message.reply("I notice you...")
     }
 })
