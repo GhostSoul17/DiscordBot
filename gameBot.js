@@ -41,22 +41,22 @@ class GameBot {
 
     gameCall() {
         this.client.on("messageCreate", (message) => {
-            const { member } = message;
+            const { author } = message;
 
             if (!message.content.toLowerCase().startsWith(this.starterG)) return;
                 
             if(message.content.toLowerCase().includes("play")){
                 message.channel.send("What would you like to play? \nGames: 0, 1, 2").then(() => {
-                    message.channel.awaitMessages(m => m.author.id == member.id, { max: 1, time: 120, errors: ["time"] })
-                    .then(async(m) => {
-                        switch (await m.first().content) {
+                    message.channel.awaitMessages(m => m.author.id == author.id, { max: 1, time: 5000, errors: ["time"] })
+                    .then(m => {
+                        switch (m.first().content) {
                             case "0":
                                 message.channel.send("I am thinking of a number between 1 and 100.\nWhat number am I thinking of?")
                                 .then(() => {
-                                    message.channel.awaitMessages(m => m.author.id == member.id, { max: 1, time: 120, errors: ["time"] })
-                                    .then(async(m) => {
+                                    message.channel.awaitMessages(m => m.author.id == author.id, { max: 1, time: 5000, errors: ["time"] })
+                                    .then(m => {
                                         const botAnswer = Math.floor(Math.random * (1 - 100));
-                                        const userAnwser = await m.first().content;
+                                        const userAnwser = m.first().content;
 
                                         if (userAnwser.toLowerCase() == botAnswer) {
                                             message.reply(`Yes! I was totally thinking of ${botAnswer}!`)
