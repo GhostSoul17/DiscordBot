@@ -28,18 +28,15 @@ client.on("ready", () => {
 
 client.on("messageCreate", message => {
     const filter = m => {
-        console.log(m);
-
        return m.author.id == message.author.id;
     }
-
-    console.log(message);
 
     if (message.content.toLowerCase() == "?hello") {
         message.channel.send("what is your name?");
 
         message.channel.awaitMessages(filter, { max: 1, time: 5000 })
         .then(collected => {
+            console.log(collected);
             message.reply("Thanks for the reply!");
         })
     }
