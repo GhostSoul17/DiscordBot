@@ -9,7 +9,7 @@ class UserCommands{
             const { member, mentions } = message;
             const tag = `<@${member.id}>`;
 
-            if (!message.content.toLowerCase().startsWith(this.starter)) return;        
+            if (!message.content.toLowerCase().startsWith(this.starter) && !message.content.toLowerCase().includes('kick')) return;        
             
             if(member.hasPermission('ADMINISTRATOR') || member.hasPermission('KICK_MEMBERS')){
                 const target = mentions.users.first();
@@ -34,7 +34,7 @@ class UserCommands{
             const { member, mentions } = message;
             const tag = `<@${member.id}>`;
 
-            if (!message.content.toLowerCase().startsWith(this.starter)) return;        
+            if (!message.content.toLowerCase().startsWith(this.starter) && !message.content.toLowerCase().includes('ban')) return;        
             
             if(member.hasPermission('ADMINISTRATOR') || member.hasPermission('BAN_MEMBERS')){
                 const target = mentions.users.first();
