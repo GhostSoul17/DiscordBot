@@ -48,15 +48,15 @@ class GameBot {
             if(message.content.toLowerCase().includes("play")){
                 message.channel.send("What would you like to play? \nGames: 0, 1, 2").then(() => {
                     message.channel.awaitMessages(m => m.author.id == member.id, { max: 1, time: 120, errors: ["time"] })
-                    .then(m => {
-                        switch (m.first().content) {
+                    .then(async(m) => {
+                        switch (await m.first().content) {
                             case "0":
                                 message.channel.send("I am thinking of a number between 1 and 100.\nWhat number am I thinking of?")
                                 .then(() => {
                                     message.channel.awaitMessages(m => m.author.id == member.id, { max: 1, time: 120, errors: ["time"] })
-                                    .then(m => {
+                                    .then(async(m) => {
                                         const botAnswer = Math.floor(Math.random * (1 - 100));
-                                        const userAnwser = m.first().content;
+                                        const userAnwser = await m.first().content;
 
                                         if (userAnwser.toLowerCase() == botAnswer) {
                                             message.reply(`Yes! I was totally thinking of ${botAnswer}!`)
