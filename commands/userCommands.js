@@ -27,7 +27,7 @@ class UserCommands{
             }
         };
 
-        messageCommand(command, [ this.starter, 'kick' ]);
+        messageCommand(command,  new Array(this.starter, 'kick'));
     }
 
     banUser() {
@@ -52,7 +52,7 @@ class UserCommands{
             }
         };
         
-        messageCommand(command, [ this.starter, 'ban' ]);
+        messageCommand(command,  new Array(this.starter, 'ban'));
     }
 }
 

@@ -12,7 +12,7 @@ class HelpCommands {
             }
         };
 
-        messageCommand(command, [ this.starter ]);
+        messageCommand(command, new Array(this.starter));
     };
 
 };

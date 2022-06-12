@@ -91,7 +91,7 @@ class GameBot {
             }
         };
 
-        messageCommand(command, [ this.starterG ]);
+        messageCommand(command, new Array(this.starterG));
     };
 
 }

@@ -53,7 +53,7 @@ class SpeechHammer {
             }
         };
 
-        messageCommand(command, [ this.starter ]);
+        messageCommand(command, new Array(this.starter));
     }
 }
 
