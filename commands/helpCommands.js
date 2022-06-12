@@ -1,4 +1,4 @@
-import { messageCommand } from './baseCommands.js';
+import messageCommand from './baseCommands.js';
 
 class HelpCommands {
     constructor(starter) {
