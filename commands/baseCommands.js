@@ -1,8 +1,8 @@
 import { client } from "../main.js";
 
-export default function messageCommand(callback, starter) {
+export default function messageCommand(callback, starter = []) {
     client.on("messageCreate", (message) => {
-        if (starter)
+        if (starter.length > 0)
         {
             for (const prefix in starter)
             {
