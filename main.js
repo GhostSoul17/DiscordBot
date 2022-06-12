@@ -1,30 +1,17 @@
-import HelpCommands from './helpCommands.js';
-import SpeechHammer from './speechHammer.js';
+import startBot from './commands/baseCommands.js';
+import HelpCommands from './commands/helpCommands.js';
+import SpeechHammer from './commands/speechHammer.js';
 // import UserCommands from './userCommands.js';
-import GameBot from './gameBot.js';
-import Discord from 'discord.js';
-import env from 'dotenv';
-
-env.config();
-
-const client = new Discord.Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MESSAGES"
-    ]
-})
+import GameBot from './games/gameBot.js';
 
 const starter = "stalkerbot";
 const starterG = "gamebot";
-const helper = new HelpCommands(client, starter);
-const hammer = new SpeechHammer(client, starter);
+const helper = new HelpCommands(starter);
+const hammer = new SpeechHammer(starter);
 // const users = new UserCommands(client, starter);
-const gameBot = new GameBot(client, starterG);
+const gameBot = new GameBot(starterG);
 
-client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`)
-
-});
+startBot();
 
 helper.helpCall();
 
