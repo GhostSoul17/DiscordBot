@@ -2,14 +2,11 @@ import { client } from "../main.js";
 
 export default function messageCommand(callback, starter = []) {
     client.on("messageCreate", (message) => {
-        console.log(starter);
-        console.log(starter.length);
         if (starter.length > 0)
         {
-            for (const prefix in starter)
+            for (let i = 0; i < starter.length; ++i)
             {
-                console.log(prefix);
-                if (!message.content.startsWith(prefix)) return;
+                if (!message.content.startsWith(starter[i])) return;
             }
         }
 
