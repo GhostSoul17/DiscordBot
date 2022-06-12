@@ -1,4 +1,4 @@
-import client from "../main";
+import client from "../main.js";
 
 export default function messageCommand(callback, starter) {
     client.on("messageCreate", (message) => {
