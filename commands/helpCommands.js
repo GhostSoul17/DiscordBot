@@ -1,4 +1,4 @@
-import { messageCommand } from './baseCommands';
+import messageCommand from './baseCommands';
 
 class HelpCommands {
     constructor(starter) {
