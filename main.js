@@ -18,7 +18,7 @@ const starter = "stalkerbot";
 const starterG = "gamebot";
 const helper = new HelpCommands(starter);
 const hammer = new SpeechHammer(starter);
-// const users = new UserCommands(client, starter);
+// const users = new UserCommands(starter);
 const gameBot = new GameBot(starterG);
 
 client.on("ready", () => {

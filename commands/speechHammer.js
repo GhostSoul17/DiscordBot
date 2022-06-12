@@ -1,6 +1,7 @@
+import messageCommand from "./baseCommands.js";
+
 class SpeechHammer {
-    constructor(client, starter) {
-        this.client = client;
+    constructor(starter) {
         this.starter = starter;
         this.naughtyWords = new Array( 
             "moist",
@@ -29,7 +30,7 @@ class SpeechHammer {
     }
 
     checkSpeech() {
-        this.client.on("messageCreate", (message) => {
+        const command = (message) => {
             const messageArr = message.content.toLowerCase().split(" ");
 
             for (let i = 0; i < this.naughtyWords.length; ++i)
@@ -40,18 +41,19 @@ class SpeechHammer {
                     break;
                 }
             }
-            
-        })
+        };
+
+        messageCommand(command);
     }
 
     welcomeSpeech() {
-        this.client.on("messageCreate", (message) => {
-            if (!message.content.toLowerCase().startsWith(this.starter)) return;
-        
+        const command = (message) => {
             if(message.content.toLowerCase().includes("hey") || message.content.toLowerCase().includes("yo")){
                 message.reply("I notice you...")
             }
-        })
+        };
+
+        messageCommand(command, [ this.starter ]);
     }
 }
 

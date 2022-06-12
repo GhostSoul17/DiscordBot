@@ -1,7 +1,8 @@
+import messageCommand from "../commands/baseCommands.js";
+
 class GameBot {
 
-    constructor(client, starterG) {
-        this.client = client;
+    constructor(starterG) {
         this.starterG = starterG;
         this.animalARRAY = [
             "Leopard",
@@ -40,14 +41,12 @@ class GameBot {
     };
 
     gameCall() {
-        this.client.on("messageCreate", (message) => {
+        const command = (message) => {
             const { author } = message;
-            const msgFilter = m => m.author.id == author.id
-
-            if (!message.content.toLowerCase().startsWith(this.starterG)) return;
+            const msgFilter = m => m.author.id == author.id;
                 
-            if(message.content.toLowerCase().includes("play")){
-                message.channel.send("What would you like to play? \nGames: 0, 1, 2")
+            if(message.content.toLowerCase().includes("play")) {
+                message.channel.send("What would you like to play? \nGames: 0, 1, 2");
 
                 message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 15000, errors: ["time"] })
                 .then(m => {
@@ -66,12 +65,12 @@ class GameBot {
                                 else {
                                     message.reply(`Womp womp, I was thinking of ${botAnswer}. You lose.`)
                                 }
-                            }).catch(collected => {
+                            }).catch(() => {
                                 message.reply('Game timed out. Try again.');
                             });
                             break;
                         case "1":
-                            message.reply("What animal am I thinking of?")
+                            message.reply("What animal am I thinking of?");
                             let animal = this.animalARRAY[Math.floor(Math.random * this.animalARRAY.length)];
                             if(message.content.toLowerCase().includes(animal)){
                                 message.reply(`You sly dog! ${animal} died though, but you won!`);
@@ -86,11 +85,13 @@ class GameBot {
                             message.reply("Nothing would make me happier");
                             break;
                     }
-                }).catch(collected => {
+                }).catch(() => {
                     message.reply('Game timed out. Try again.');
                 });
             }
-        })
+        };
+
+        messageCommand(command, [ this.starterG ]);
     };
 
 }
