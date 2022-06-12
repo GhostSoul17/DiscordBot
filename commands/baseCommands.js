@@ -1,4 +1,3 @@
-
 import Discord from 'discord.js';
 import env from 'dotenv';
 
@@ -9,7 +8,7 @@ const client = new Discord.Client({
         "GUILDS",
         "GUILD_MESSAGES"
     ]
-})
+});
 
 export function messageCommand(callback, starter) {
     client.on("messageCreate", (message) => {
@@ -19,11 +18,15 @@ export function messageCommand(callback, starter) {
 
             callback(message);
         }
-    })
+    });
+};
+
+export function login() {
+    client.login(process.env.TOKEN);
 }
 
 export default function startBot() {
     client.on("ready", () => {
         console.log(`Logged in as ${client.user.tag}`);
     });
-}
+};

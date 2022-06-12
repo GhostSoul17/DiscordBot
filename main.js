@@ -1,4 +1,4 @@
-import startBot from './commands/baseCommands.js';
+import startBot, { login } from './commands/baseCommands.js';
 import HelpCommands from './commands/helpCommands.js';
 import SpeechHammer from './commands/speechHammer.js';
 // import UserCommands from './userCommands.js';
@@ -25,4 +25,4 @@ hammer.welcomeSpeech();
 
 gameBot.gameCall();
 
-client.login(process.env.TOKEN)
+login();

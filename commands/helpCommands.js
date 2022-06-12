@@ -1,7 +1,6 @@
 import { messageCommand } from './baseCommands';
 
 class HelpCommands {
-
     constructor(starter) {
         this.starter = starter;
     };
@@ -16,6 +15,6 @@ class HelpCommands {
         messageCommand(command, this.starter);
     };
 
-}
+};
 
 export default HelpCommands;
