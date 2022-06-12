@@ -1,18 +1,8 @@
-import Discord from 'discord.js';
-import env from 'dotenv';
+import startBot, { login} from './commands/baseCommands.js';
 import HelpCommands from './commands/helpCommands.js';
 import SpeechHammer from './commands/speechHammer.js';
 // import UserCommands from './userCommands.js';
 import GameBot from './games/gameBot.js';
-
-env.config();
-
-const client = new Discord.Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MESSAGES"
-    ]
-});
 
 const starter = "stalkerbot";
 const starterG = "gamebot";
@@ -21,9 +11,7 @@ const hammer = new SpeechHammer(starter);
 // const users = new UserCommands(client, starter);
 const gameBot = new GameBot(starterG);
 
-client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`);
-});
+startBot();
 
 helper.helpCall();
 
@@ -37,6 +25,4 @@ hammer.welcomeSpeech();
 
 gameBot.gameCall();
 
-client.login(process.env.TOKEN);
-
-export default client;
+login();
