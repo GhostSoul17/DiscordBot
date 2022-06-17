@@ -18,12 +18,12 @@ class UserCommands{
 
                     targetMember.kick();
 
-                    message.reply(`${tag} That user has been kicked.`);
+                    message.channel.send(`${tag} That user has been kicked.`);
                 } else {
-                    message.reply(`${tag} Please specify someone to kick.`)
+                    message.channel.send(`${tag} Please specify someone to kick.`)
                 }
             } else {
-                message.reply(`${tag} You do not have permission to use this command.`)
+                message.channel.send(`${tag} You do not have permission to use this command.`)
             }
         };
 
@@ -43,12 +43,12 @@ class UserCommands{
 
                     targetMember.ban();
 
-                    messsage.reply(`${tag} That user has been banned.`);
+                    messsage.channel.send(`${tag} That user has been banned.`);
                 } else {
-                    message.reply(`${tag} Please specify someone to ban.`)
+                    message.channel.send(`${tag} Please specify someone to ban.`)
                 }
             } else {
-                message.reply(`${tag} You do not have permission to use this command.`)
+                message.channel.send(`${tag} You do not have permission to use this command.`)
             }
         };
         

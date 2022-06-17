@@ -8,7 +8,7 @@ class HelpCommands {
     helpCall() {
         const command = (message) => {
             if(message.content.toLowerCase().includes("help")) {
-                message.reply("Please be more specific");
+                message.channel.send("Please be more specific");
             }
         };
 
