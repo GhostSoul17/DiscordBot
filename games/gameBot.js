@@ -60,33 +60,37 @@ class GameBot {
                                 const userAnwser = m.first().content;
                                 
                                 if (userAnwser.toLowerCase() == botAnswer) {
-                                    message.reply(`Yes! I was totally thinking of ${botAnswer}!`)
+                                    message.channel.send(`Yes! I was totally thinking of ${botAnswer}!`)
                                 }
                                 else {
-                                    message.reply(`Womp womp, I was thinking of ${botAnswer}. You lose.`)
+                                    message.channel.send(`Womp womp, I was thinking of ${botAnswer}. You lose.`)
                                 }
                             }).catch(() => {
-                                message.reply('Game timed out. Try again.');
+                                message.channel.send('Game timed out. Try again.');
                             });
                             break;
                         case "1":
-                            message.reply("What animal am I thinking of?");
-                            let animal = this.animalARRAY[Math.floor(Math.random * this.animalARRAY.length)];
-                            if(message.content.toLowerCase().includes(animal)){
-                                message.reply(`You sly dog! ${animal} died though, but you won!`);
-                            }else{
-                                message.reply(`${animal} decided to eat you...try again`);
-                            }
+                            message.channel.send("What animal am I thinking of?");
+
+                            message.channel.awaitMessages(m => {
+                                let animal = this.animalARRAY[Math.floor(Math.random * this.animalARRAY.length)];
+
+                                if(m.content.toLowerCase().includes(animal)){
+                                    message.channel.send(`You sly dog! ${animal} died though, but you won!`);
+                                }else{
+                                    message.channel.send(`${animal} decided to eat you...try again`);
+                                }
+                            });
                             break;
                         case "2":
-                            message.reply("Totally gonna add a game later, pick a different game");
+                            message.channel.send("Totally gonna add a game later, pick a different game");
                             break;
                         default:
-                            message.reply("Nothing would make me happier");
+                            message.channel.send("Nothing would make me happier");
                             break;
                     }
                 }).catch(() => {
-                    message.reply('Game timed out. Try again.');
+                    message.channel.send('Game timed out. Try again.');
                 });
             }
         };

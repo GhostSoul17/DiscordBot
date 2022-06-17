@@ -37,7 +37,7 @@ class SpeechHammer {
             {
                 if (messageArr.includes(this.naughtyWords[i]))
                 {
-                    message.reply(this.randomReply[Math.floor(Math.random() * this.randomReply.length)]);
+                    message.channel.send(this.randomReply[Math.floor(Math.random() * this.randomReply.length)]);
                     break;
                 }
             }
@@ -49,7 +49,7 @@ class SpeechHammer {
     welcomeSpeech() {
         const command = (message) => {
             if(message.content.toLowerCase().includes("hey") || message.content.toLowerCase().includes("yo")){
-                message.reply("I notice you...")
+                message.channel.send("I notice you...")
             }
         };
 
