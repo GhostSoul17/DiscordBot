@@ -38,7 +38,7 @@ function runSarcasmCheck(sarcasmPhrase) {
     output = model.predict(data)
     print(output)`;
 
-    PythonShell.runScript(pythonScript, null, function (error, results) {
+    PythonShell.runString(pythonScript, null, function (error, results) {
         if (error) throw error;
 
         phrase = results[0];
