@@ -1,5 +1,5 @@
 import { PythonShell } from 'python-shell';
-import { messageCommand } from '../commands/baseCommands.js';
+import messageCommand from '../commands/baseCommands.js';
 
 class SarcasmCommands {
     constructor() { }
