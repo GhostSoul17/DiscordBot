@@ -39,6 +39,6 @@ hammer.welcomeSpeech();
 
 gameBot.gameCall();
 
-sarcasmCommands.salistenForSarcasm();
+sarcasmCommands.listenForSarcasm();
 
 client.login(process.env.TOKEN);
