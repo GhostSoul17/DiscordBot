@@ -5,15 +5,15 @@ class GameBot {
     constructor(starterG) {
         this.starterG = starterG;
         this.animalARRAY = [
-            "Leopard",
-            "Bengal Tiger",
+            "leopard",
+            "bengal tiger",
             "pussy",
             "squirrel",
-            "Bear",
-            "Lion",
-            "Flying Fox",
-            "Rabbit",
-            "Peregrine Falcon",
+            "bear",
+            "lion",
+            "flying fox",
+            "rabbit",
+            "peregrine falcon",
             "chihuahua",
             "titmouse",
             "chipmunk",
@@ -76,9 +76,9 @@ class GameBot {
                                 let animal = this.animalARRAY[Math.floor(Math.random() * this.animalARRAY.length)];
 
                                 if(m.first().content.toLowerCase().includes(animal)){
-                                    message.channel.send(`You sly dog! ${animal} died though, but you won!`);
+                                    message.channel.send(`You sly dog! The ${animal} died though, but you won!`);
                                 }else{
-                                    message.channel.send(`${animal} decided to eat you...try again`);
+                                    message.channel.send(`The ${animal} decided to eat you...try again`);
                                 }
                             });
                             break;
