@@ -20,8 +20,6 @@ class SarcasmCommands {
 function runSarcasmCheck(sarcasmPhrase) {
     let phrase = '';
     let options = {
-        mode: 'text',
-        pythonOptions: ['-c'], // get print results in real-time
         args: [sarcasmPhrase]
     };
 
