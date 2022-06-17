@@ -73,7 +73,7 @@ class GameBot {
                             message.channel.send("What animal am I thinking of?");
 
                             message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 15000, errors: ["time"] }).then(m => {
-                                let animal = this.animalARRAY[Math.floor(Math.random * this.animalARRAY.length)];
+                                let animal = this.animalARRAY[Math.floor(Math.random() * this.animalARRAY.length)];
 
                                 if(m.first().content.toLowerCase().includes(animal)){
                                     message.channel.send(`You sly dog! ${animal} died though, but you won!`);
