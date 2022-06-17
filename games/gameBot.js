@@ -52,11 +52,11 @@ class GameBot {
                 .then(m => {
                     switch (m.first().content) {
                         case "0":
-                            message.channel.send("I am thinking of a number between 1 and 100.\nWhat number am I thinking of?");
+                            message.channel.send("I am thinking of a number between 1 and 10.\nWhat number am I thinking of?");
                             
                             message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 15000, errors: ["time"] })
                             .then(m => {
-                                const botAnswer = Math.floor((Math.random() * 100) + 1);
+                                const botAnswer = Math.floor((Math.random() * 10) + 1);
                                 const userAnwser = m.first().content;
                                 
                                 if (userAnwser.toLowerCase() == botAnswer) {

@@ -1,7 +1,7 @@
 import HelpCommands from './commands/helpCommands.js';
 import SpeechHammer from './commands/speechHammer.js';
 // import UserCommands from './userCommands.js';
-import SarcasmCommands from './sarcasmCommands/sarcasmCommands.js';
+// import SarcasmCommands from './sarcasmCommands/sarcasmCommands.js';
 import GameBot from './games/gameBot.js';
 import Discord from 'discord.js';
 import env from 'dotenv';
@@ -39,6 +39,6 @@ hammer.welcomeSpeech();
 
 gameBot.gameCall();
 
-sarcasmCommands.listenForSarcasm();
+// sarcasmCommands.listenForSarcasm();
 
 client.login(process.env.TOKEN);
