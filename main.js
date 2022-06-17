@@ -21,7 +21,7 @@ const helper = new HelpCommands(starter);
 const hammer = new SpeechHammer(starter);
 // const users = new UserCommands(starter);
 const gameBot = new GameBot(starterG);
-const sarcasmCommands = new SarcasmCommands();
+// const sarcasmCommands = new SarcasmCommands();
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
