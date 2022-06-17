@@ -72,7 +72,7 @@ class GameBot {
                         case "1":
                             message.channel.send("What animal am I thinking of?");
 
-                            message.channel.awaitMessages(m => {
+                            message.channel.awaitMessages({ filter: msgFilter,  max: 1, time: 15000, errors: ["time"] }).then(m => {
                                 let animal = this.animalARRAY[Math.floor(Math.random * this.animalARRAY.length)];
 
                                 if(m.content.toLowerCase().includes(animal)){
