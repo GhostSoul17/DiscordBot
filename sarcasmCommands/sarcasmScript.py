@@ -15,6 +15,6 @@ X = cv.fit_transform(x) # Fit the Data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
 model = BernoulliNB()
 model.fit(X_train, y_train)
-data = cv.transform().toarray()
+data = cv.transform(phrase).toarray()
 output = model.predict(data)
 print(output)

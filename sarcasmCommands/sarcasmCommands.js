@@ -24,7 +24,7 @@ function runSarcasmCheck(sarcasmPhrase) {
         args: [sarcasmPhrase]
     };
 
-    PythonShell.runString('sarcasmScript.py', options, function (error,results) {
+    PythonShell.runString('sarcasmScript.py', options, function (error, results) {
         if (error) throw error;
 
         phrase = results[0];
