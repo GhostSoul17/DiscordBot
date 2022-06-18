@@ -1,53 +1,31 @@
-import { PythonShell } from 'python-shell';
 import messageCommand from '../commands/baseCommands.js';
+import httpHelper from '../utils/httpHelper.js';
 
 class SarcasmCommands {
     constructor() { }
 
     listenForSarcasm() {
         const command = (message) => {
-            const phrase = runSarcasmCheck(message.content);
+            let phrase = '';
+            const objectMessage = { 'answer': message.content };
+
+            await httpHelper('https://sarcasam-api.herokuapp.com/containsSarcasm', 'POST', objectMessage)
+            .then((response) => {
+                if (response.status == 200) {
+                    return response.json()
+                }
+
+                throw new Error();
+            }).then((data) => phrase = data.answer)
+            .catch(() => {});
     
-            if (phrase.toLowerCase() === "['sarcasm']") {
-                message.channel.send("Thats sarcastic!");
+            if (phrase.toLowerCase() === "sarcasm") {
+                message.channel.send("Thats sarcastic! Stop it!");
             }
         };
     
         messageCommand(command);
     }
-}
-
-function runSarcasmCheck(sarcasmPhrase) {
-    let phrase = '';
-    let pythonScript = `
-    import pandas as pd
-    import numpy as np
-    from sklearn.feature_extraction.text import CountVectorizer
-    from sklearn.model_selection import train_test_split
-    from sklearn.naive_bayes import BernoulliNB
-    
-    data = pd.read_json("Sarcasm.json", lines=True)
-    data = data[["headline", "is_sarcastic"]]
-    x = np.array(data["headline"])
-    y = np.array(data["is_sarcastic"])
-    cv = CountVectorizer()
-    X = cv.fit_transform(x) # Fit the Data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
-    model = BernoulliNB()
-    model.fit(X_train, y_train)
-    data = cv.transform(${sarcasmPhrase}).toarray()
-    output = model.predict(data)
-    print(output)`;
-
-    PythonShell.runString(pythonScript, null, function (error, results) {
-        if (error) throw error;
-
-        phrase = results[0];
-
-        console.log(phrase);
-    });
-
-    return phrase;
 }
 
 export default SarcasmCommands;

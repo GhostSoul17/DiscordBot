@@ -1,7 +1,7 @@
 import HelpCommands from './commands/helpCommands.js';
 import SpeechHammer from './commands/speechHammer.js';
 // import UserCommands from './userCommands.js';
-// import SarcasmCommands from './sarcasmCommands/sarcasmCommands.js';
+import SarcasmCommands from './sarcasmCommands/sarcasmCommands.js';
 import GameBot from './games/gameBot.js';
 import Discord from 'discord.js';
 import env from 'dotenv';
@@ -21,7 +21,7 @@ const helper = new HelpCommands(starter);
 const hammer = new SpeechHammer(starter);
 // const users = new UserCommands(starter);
 const gameBot = new GameBot(starterG);
-// const sarcasmCommands = new SarcasmCommands();
+const sarcasmCommands = new SarcasmCommands();
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
@@ -39,6 +39,6 @@ hammer.welcomeSpeech();
 
 gameBot.gameCall();
 
-// sarcasmCommands.listenForSarcasm();
+sarcasmCommands.listenForSarcasm();
 
 client.login(process.env.TOKEN);
