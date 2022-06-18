@@ -7,7 +7,7 @@ class SarcasmCommands {
     listenForSarcasm() {
         const command = async (message) => {
             let phrase = '';
-            const objectMessage = { 'answer': message.content };
+            const objectMessage = { 'phrase': message.content };
 
             await httpHelper('https://sarcasam-api.herokuapp.com/containsSarcasm', 'POST', objectMessage)
             .then((response) => {
