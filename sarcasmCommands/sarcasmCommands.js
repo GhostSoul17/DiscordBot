@@ -5,7 +5,7 @@ class SarcasmCommands {
     constructor() { }
 
     listenForSarcasm() {
-        const command = (message) => {
+        const command = async (message) => {
             let phrase = '';
             const objectMessage = { 'answer': message.content };
 
